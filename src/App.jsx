@@ -17,6 +17,7 @@ function App() {
     createSum();
     setResult("");
     inputRef.current.focus();
+    document.title = "Math Game";
   }, []);
 
   function createSum() {
@@ -87,7 +88,7 @@ function NumberInput({ label, type, number, setNumber, inputRef }) {
   };
 
   return (
-    <>
+    <div className="label-input">
       <label className="label" htmlFor={type}>{label}</label>
       <input
         id={type}
@@ -97,17 +98,17 @@ function NumberInput({ label, type, number, setNumber, inputRef }) {
         value={number}
         onChange={handleChange}
       />
-    </>
+    </div>
   );
 }
 
 function Buttons({ createSum, sendResult }) {
 
   return (
-    <>
+    <div className="buttons">
       <button className="button ok-button" onClick={sendResult}>OK</button>
       <button className="button" onClick={createSum}>New Sum</button>
-    </>
+    </div>
   )
 }
 

@@ -23,6 +23,23 @@ h1 {
   outline: none;
 }
 
+.label-input {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 825px) {
+  .label-input {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttons {
+    display: inline-block;
+  }
+}
+
+
 .button {
   margin-left: 8px;
   border: 2px solid rgb(50, 50, 50);
