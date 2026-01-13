@@ -32,9 +32,9 @@ function App() {
       let sumTextVar = "";
       let rdm = 0;
       for (let i = 0; i < counts; i++) {
-        rdm = getRndInteger(minNumber, maxNumber);
+        rdm = getRndInteger(parseInt(minNumber), parseInt(maxNumber));
         sumCalc += rdm;
-        if (i <= counts - 2) {
+        if (i <= (counts - 2)) {
           sumTextVar += rdm + " + ";
         } else {
           sumTextVar += rdm;
@@ -77,14 +77,14 @@ function App() {
 }
 
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.round(Math.random() * (max - min)) + min;
 }
-
 
 function NumberInput({ label, type, number, setNumber, inputRef }) {
   const handleChange = (event) => {
     const onlyNumbers = event.target.value.replace(/[^0-9]/g, '');
     setNumber(onlyNumbers);
+
   };
 
   return (
