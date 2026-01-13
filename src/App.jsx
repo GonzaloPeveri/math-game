@@ -66,7 +66,7 @@ function App() {
         <NumberInput label="Min Number" type="Minnumber" number={minNumber} setNumber={setMinNumber} />
         <NumberInput label="Max Number" type="maxnumber" number={maxNumber} setNumber={setMaxNumber} />
         <NumberInput label="Total Counts" type="totalcounts" number={counts} setNumber={setCounts} />
-        <NumberInput label="Result" type="result" number={result} setNumber={setResult} inputRef={inputRef} />
+        <NumberInput label="Result" type="result" number={result} setNumber={setResult} inputRef={inputRef} sendResult={sendResult} />
         <Buttons createSum={createSum} sendResult={sendResult} />
         <h2>{resultNumber}</h2>
         <h1>{resultText}</h1>
@@ -80,11 +80,17 @@ function getRndInteger(min, max) {
   return Math.round(Math.random() * (max - min)) + min;
 }
 
-function NumberInput({ label, type, number, setNumber, inputRef }) {
+function NumberInput({ label, type, number, setNumber, inputRef, sendResult }) {
   const handleChange = (event) => {
     const onlyNumbers = event.target.value.replace(/[^0-9]/g, '');
     setNumber(onlyNumbers);
 
+  };
+
+  const handleKeyDown = (e) => {
+    if ((e.key === "o" || e.key === "O") || e.key === "Enter") {
+      sendResult();
+    }
   };
 
   return (
@@ -97,6 +103,7 @@ function NumberInput({ label, type, number, setNumber, inputRef }) {
         type="text"
         value={number}
         onChange={handleChange}
+        onKeyDown={type === 'result' ? handleKeyDown : null}
       />
     </div>
   );
