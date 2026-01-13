@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import './App.css'
 
 function App() {
-  const [minNumber, setMinNumber] = useState(1);
+  const [minNumber, setMinNumber] = useState(3);
   const [maxNumber, setMaxNumber] = useState(10);
   const [counts, setCounts] = useState(7);
   const [result, setResult] = useState(0);

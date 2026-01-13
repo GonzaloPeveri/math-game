@@ -16,7 +16,12 @@
 }
 
 h1 {
-  margin-bottom: 40px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+body {
+  margin-top: 0px;
 }
 
 .number-input:focus {
@@ -26,6 +31,19 @@ h1 {
 .label-input {
   margin-bottom: 20px;
 }
+
+@media (min-width: 768px) {
+  body {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
 
 @media (min-width: 825px) {
   .label-input {
